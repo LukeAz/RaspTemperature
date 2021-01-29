@@ -38,10 +38,10 @@ $ nano config.json
 ```
 
 Explanation:
-*minTemp: minimum temperature in degrees Celsius (the fan will remain off);
-*maxTemp: maximum temperature in degrees Celsius (the fan will go to maximum power);
-*pinNum: GPIO pin number used for PWM management. Normally pin 17 is used, but you can use pin 12 or 13;
-*hertz: the frequency of the PWM, it is strongly recommended to leave 60, but it can be raised or lowered depending on the possible noise of the fan;
-*refleshTime: timer in seconds for temperature update, it is recommended to enter a value between 2 and 5 seconds, to avoid abrupt changes in fan speed;
-*initialState: value from 0 to 255, allows you to set a minimum starting value of PWM, to be raised in case the fan does not have enough power to start. It is recommended not to enter a value higher than 30.
+* minTemp: minimum temperature in degrees Celsius (the fan will remain off);
+* maxTemp: maximum temperature in degrees Celsius (the fan will go to maximum power);
+* pinNum: GPIO pin number used for PWM management. Normally pin 17 is used, but you can use pin 12 or 13;
+* hertz: the frequency of the PWM, it is strongly recommended to leave 60, but it can be raised or lowered depending on the possible noise of the fan;
+* refleshTime: timer in seconds for temperature update, it is recommended to enter a value between 2 and 5 seconds, to avoid abrupt changes in fan speed;
+* initialState: value from 0 to 255, allows you to set a minimum starting value of PWM, to be raised in case the fan does not have enough power to start. It is recommended not to enter a value higher than 30.
 
