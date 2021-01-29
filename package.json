@@ -1,0 +1,19 @@
+{
+  "name": "RaspTemperature",
+  "description": "This project allows you to manage the speed of a 5 volt fan on Raspberry Pi.",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "pigpio": "^3.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LukeAz/RaspTemperature.git"
+  },
+  "keywords": [],
+  "author": "LukeAz",
+  "license": "MIT"
+}

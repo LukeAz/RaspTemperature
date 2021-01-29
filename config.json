@@ -1,0 +1,8 @@
+{
+    "minTemp": 30,
+    "maxTemp": 50,
+    "pinNum": 17,
+    "hertz": 60,
+    "refleshTime": 2,
+    "initialState": 20
+}
