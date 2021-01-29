@@ -31,7 +31,7 @@ $ git clone https://github.com/LukeAz/RaspTemperature.git
 $ cd RaspTemperature
 $ npm install
 $ nano config.json
-$ npm start
+$ sudo npm start
 ```
 For more information see: 
 * https://github.com/fivdi/pigpio#installation
