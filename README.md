@@ -16,6 +16,9 @@ You must download the vcgencmd file and insert it in '/opt/vc/bin/vcgencmd'.
 Project is created with:
 * Pigpio C library to enable fast GPIO, PWM
 * Pigpio Nodejs library
+
+![PWM Scheme](https://github.com/LukeAz/RaspTemperature/blob/main/img/scheme.png)
+This scheme was designed by RikiDema (https://github.com/RikiDema).
 	
 ## Setup and run
 To run this project, install it locally:
