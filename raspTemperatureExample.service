@@ -1,0 +1,13 @@
+[Unit]
+Description=raspTemperature
+
+[Service]
+Restart=on-failure
+RestartSec=5s
+Type=simple
+User=root
+WorkingDirectory=/home/user/desktop/raspTemperature
+ExecStart=npm start
+
+[Install]
+WantedBy=multi-user.target
