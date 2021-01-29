@@ -18,6 +18,7 @@ Project is created with:
 * Pigpio Nodejs library
 
 ![PWM Scheme](https://github.com/LukeAz/RaspTemperature/blob/main/img/scheme.png)
+
 This scheme was designed by RikiDema (https://github.com/RikiDema).
 	
 ## Setup and run
