@@ -1,8 +1,9 @@
 ## RaspTemperature
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [Setup and run](#setup)
+* [Setup and run](#setup-and-run)
 * [Configuration](#configuration)
+* [System service](#service)
 
 ## General info
 This project allows you to manage the speed of a 5 volt fan on Raspberry Pi.
@@ -45,3 +46,22 @@ Explanation:
 * refleshTime: timer in seconds for temperature update, it is recommended to enter a value between 2 and 5 seconds, to avoid abrupt changes in fan speed;
 * initialState: value from 0 to 255, allows you to set a minimum starting value of PWM, to be raised in case the fan does not have enough power to start. It is recommended not to enter a value higher than 30.
 
+## Service
+In the repository there is an example in the file 'raspTemperatureExample.service' to insert the script into the system services.
+It is necessary to edit the working directory within it.
+
+```
+$ nano raspTemperatureExample.service
+$ cp raspTemperatureExample.service /etc/systemd/system/
+$ sudo systemctl enable raspTemperatureExample
+$ sudo systemctl start raspTemperatureExample
+```
+To stop the service:
+```
+$ sudo systemctl stop raspTemperatureExample
+```
+To delete the service:
+```
+$ sudo systemctl disable raspTemperatureExample
+$ sudo rm /etc/systemd/system/raspTemperatureExample.service
+```
