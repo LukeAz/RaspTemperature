@@ -13,30 +13,28 @@ const INITIAL_STATE = (config.initialState >=0 && config.initialState <=255) ? c
 const functions = require('./functions');
 const transistor = functions.initGpio(PIN_NUM, HERTZ);
 
-let state = 0; //0 to 255 value
+let state = 0; 
 let maxTemp = 0;
 let temp = 0;
 
-let interval = setInterval(async () => {
-    temp = await functions.execute('/opt/vc/bin/vcgencmd measure_temp');
+let interval = setInterval(() => {
+    temp = functions.readTemperature();
     if (temp!=false) {
         temp = functions.parseTemp(temp);
-        if (temp>maxTemp) maxTemp=temp;
+        if (temp>maxTemp) 
+            maxTemp=temp;
 
-        if (temp <= MIN_TEMP)
-            state = 0;
-        else if (temp >= MAX_TEMP)
-            state = 255;
-        else {
-            state = Math.round((255 / (MAX_TEMP - MIN_TEMP)) * (temp - MIN_TEMP)); 
-            if (state<=INITIAL_STATE) state=INITIAL_STATE;
-        }
+        state = (temp <= MIN_TEMP) ? 0 : (temp >= MAX_TEMP) ? 255 :  Math.round((255 / (MAX_TEMP - MIN_TEMP)) * (temp - MIN_TEMP));
+        if (state >0 && state <= INITIAL_STATE) 
+            state=INITIAL_STATE;  
             
         transistor.pwmWrite(state);
         console.log(`+[INFO] Current temp: ${temp}, Pwm value: ${state}, Max temp: ${maxTemp}`);
     }
-    else 
+    else {
+        transistor.pwmWrite(255);
         console.log('Failed to catch temperature, please stop this script!');
+    }
 }, REFLESH_TIME * 1000);
 
 
