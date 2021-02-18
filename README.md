@@ -9,9 +9,7 @@
 This project allows you to manage the speed of a 5 volt fan on Raspberry Pi.
 Through a transistor, and two resistors you can modulate the voltage, using this project the fan will change speed based on the temperature detected by the operating system.
 
-This script uses vsgencmd, firmware present by default on raspberry. 
-In case it is not present you can find the pre compiled on the official repository of raspberry pi (https://github.com/raspberrypi/firmware/tree/master/hardfp/opt/vc).
-You must download the vcgencmd file and insert it in '/opt/vc/bin/vcgencmd'.
+This script uses the system file '/sys/class/thermal/thermal_zone0/temp' available in all raspberry pi. This file contains the real time temperature.
 
 ## Technologies
 Project is created with:
