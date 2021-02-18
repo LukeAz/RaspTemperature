@@ -20,7 +20,6 @@ let temp = 0;
 let interval = setInterval(() => {
     temp = functions.readTemperature();
     if (temp!=false) {
-        temp = functions.parseTemp(temp);
         if (temp>maxTemp) 
             maxTemp=temp;
 
