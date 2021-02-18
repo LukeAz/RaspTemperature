@@ -2,8 +2,7 @@
  * License: MIT
  * LukeAz => https://github.com/LukeAz
 */
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+const fs = require('fs');
 const Gpio = require('pigpio').Gpio;
 
 module.exports = {
@@ -12,11 +11,8 @@ module.exports = {
         transistor.pwmFrequency(HERTZ);
         return transistor;
     },
-    execute: async (command) => {
-        let { stdout, stderr } = await exec(command);
-        return stderr ? false : stdout
-    },
-    parseTemp: (data) => {
-        return data.substr(data.indexOf('=')+1, 4);
+    readTemperature: () => {
+        let temperature = Number(fs.readFileSync('/sys/class/thermal/thermal_zone0/temp', {encoding:'utf8', flag:'r'}));
+        return (isNaN(temperature)) ? false : Math.round(temperature/1000); 
     }
 }
